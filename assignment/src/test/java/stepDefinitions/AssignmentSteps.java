@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.testng.Assert;
+import org.junit.Assert;
 
 import core.BaseSpec;
 import io.cucumber.java.en.And;
@@ -36,14 +36,12 @@ public class AssignmentSteps {
 	public void verifyDynamicTableData() {
 		String expectedResult = "Chrome CPU: " + tableData.get("Chrome").get("CPU");
 		String actualResult = assignmentPage.getDynamicTableActualResult();
-		Assert.assertTrue(expectedResult.equals(actualResult),
-				"Expected Result:" + expectedResult + " is not equal to Actual Result:" + actualResult);
+		Assert.assertTrue("Expected Result:" + expectedResult + " is not equal to Actual Result:" + actualResult,expectedResult.equals(actualResult));
 	}
 
 	@Then("Link should be clicked {string} times")
 	public void linkShouldBeClickedByThisManyTimes(String count) {
-		Assert.assertTrue(assignmentPage.getLinkClickedCount(count).isDisplayed(),
-				"Link is not clicked by:" + count + "times.");
+		Assert.assertTrue("Link is not clicked by:" + count + "times.",assignmentPage.getLinkClickedCount(count).isDisplayed());
 	}
 
 	@And("User enters {string} data")
@@ -58,10 +56,8 @@ public class AssignmentSteps {
 		String expectedName = testData.get("name").toString();
 		String actualId = assignmentPage.getInputField("id").getAttribute("value");
 		String actualName = assignmentPage.getInputField("name").getAttribute("value");
-		Assert.assertTrue(expectedId.equals(actualId),
-				"Expected Id:" + expectedId + " is not equal to Actual Id:" + actualId);
-		Assert.assertTrue(expectedName.equals(actualName),
-				"Expected Name:" + expectedName + " is not equal to Actual Name:" + actualName);
+		Assert.assertTrue("Expected Id:" + expectedId + " is not equal to Actual Id:" + actualId,expectedId.equals(actualId));
+		Assert.assertTrue("Expected Name:" + expectedName + " is not equal to Actual Name:" + actualName,expectedName.equals(actualName));
 	}
 
 	@When("User Adds a new Pet {string} to the Store via API")
@@ -73,7 +69,7 @@ public class AssignmentSteps {
 
 	@Then("Pet should be added successfully")
 	public void petShouldBeCreatedSuccessfully() {
-		Assert.assertTrue(testData.get("status").toString().equals(((JSONObject) response).get("status")),"Expected Status:"+testData.get("status").toString()+" is not equal to Actual Status:"+((JSONObject) response).get("status"));
+		Assert.assertTrue("Expected Status:"+testData.get("status").toString()+" is not equal to Actual Status:"+((JSONObject) response).get("status"),testData.get("status").toString().equals(((JSONObject) response).get("status")));
 	}
 
 	@When("User get the Pet by Status {string}")
@@ -84,7 +80,7 @@ public class AssignmentSteps {
 	@Then("Pet data should be displayed successfully with status {string}")
 	public void validatePetResultsByStatus(String petStatus) {
 		((JSONArray) response).forEach(petDetail ->{
-			Assert.assertTrue(((JSONObject) petDetail).get("status").equals(petStatus),"Expected Pet Status:"+petStatus+" is not equal to Actual Pet Status:"+((JSONObject) petDetail).get("status"));
+			Assert.assertTrue("Expected Pet Status:"+petStatus+" is not equal to Actual Pet Status:"+((JSONObject) petDetail).get("status"),((JSONObject) petDetail).get("status").equals(petStatus));
 		});
 	}
 	
@@ -100,9 +96,9 @@ public class AssignmentSteps {
 	public void validateOrderCreation() {
 		String quantity = testData.get("quantity").toString();
 		String status = testData.get("status").toString();
-		Assert.assertTrue(orderId != null && orderId != "", "Id Value in response is NULL");
-		Assert.assertTrue(status.equals(((JSONObject) response).get("status")),"Expected Status:"+status+" is not equal to Actual Status:"+((JSONObject) response).get("status").toString());
-		Assert.assertTrue(quantity.equals(((JSONObject) response).get("quantity").toString()),"Expected Quantity:"+quantity+" is not equal to Actual Quantity:"+((JSONObject) response).get("quantity"));
+		Assert.assertTrue("Id Value in response is NULL",orderId != null && orderId != "");
+		Assert.assertTrue("Expected Status:"+status+" is not equal to Actual Status:"+((JSONObject) response).get("status").toString(),status.equals(((JSONObject) response).get("status")));
+		Assert.assertTrue("Expected Quantity:"+quantity+" is not equal to Actual Quantity:"+((JSONObject) response).get("quantity"),quantity.equals(((JSONObject) response).get("quantity").toString()));
 		Assert.assertTrue(((JSONObject) response).get("complete").equals(true));
 	}
 }

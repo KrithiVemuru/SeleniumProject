@@ -26,7 +26,7 @@ Feature: Automation Assignment
   Scenario: Add New Pet to the Store and Create an Order for the added Pet
     When User Adds a new Pet "New Pet" to the Store via API
     Then Pet should be added successfully
-    When User get the Pet by Status "pending"
-    Then Pet data should be displayed successfully with status "pending"
+    When User get the Pet by Status "available"
+    Then Pet data should be displayed successfully with status "available"
     When User places an Order "Place Order" for the Pet
     Then Pet Order should be placed successfully
