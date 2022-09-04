@@ -1,0 +1,19 @@
+{
+  "New Pet" : [ {
+    "category" : {
+      "name" : "TestCategory"
+    },
+    "name" : "TestName",
+    "tags" : [ {
+      "name" : "TagName"
+    } ],
+    "status" : "available"
+  } ],
+  "Place Order" : [ {
+    "petId" : 0,
+    "quantity" : 3,
+    "shipDate" : "2025-09-04T06:59:11.881Z",
+    "status" : "placed",
+    "complete" : true
+  } ]
+}
