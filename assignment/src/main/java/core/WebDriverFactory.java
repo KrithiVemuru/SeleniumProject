@@ -26,7 +26,7 @@ public class WebDriverFactory {
 	
 	public WebDriver initializeFireFoxDriver(String environment) {
 		FirefoxOptions options = new FirefoxOptions();
-		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+File.separator+"g.exe");
+		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+File.separator+"geckodriver.exe");
 		driver = new FirefoxDriver(options);
 		driver.manage().deleteAllCookies();
 		driver.navigate().to(environment);
