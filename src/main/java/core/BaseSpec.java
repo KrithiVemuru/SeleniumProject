@@ -22,7 +22,6 @@ public class BaseSpec {
 	public static TestUtils testUtils = new TestUtils();
 	ApiUtils apiUtils = new ApiUtils();
 	Properties prop = new Properties();
-	WebDriverFactory factory = new WebDriverFactory();
 	String environment, userName, password, browser, testType, dataFile;
 	File destinationFolder = new File(System.getProperty("user.dir") + File.separator + "screenshots" + File.separator);
 
@@ -66,9 +65,9 @@ public class BaseSpec {
 			// Launch the browser
 			if (testType.equalsIgnoreCase("UI")) {
 				if (browser.equals("chrome")) {
-					testUtils.setWebDriver(factory.initializeChromeDriver(environment));
+					testUtils.setWebDriver(WebDriverFactory.initializeChromeDriver(environment));
 				} else if (browser.equals("firefox")) {
-					testUtils.setWebDriver(factory.initializeFireFoxDriver(environment));
+					testUtils.setWebDriver(WebDriverFactory.initializeFireFoxDriver(environment));
 				}
 			} else if (testType.equalsIgnoreCase("API")) {
 				RestAssured.baseURI = "https://petstore.swagger.io";
@@ -115,9 +114,7 @@ public class BaseSpec {
 	public void closeDriver(Scenario scenario) {
 		try {
 			if (testType.equals("UI")) {
-				if (scenario.isFailed()) {
-					captureScreenshot(scenario);
-				}
+				scenario.attach(((TakeScreenShot)testUtils.getWebDriver()).getScreenshotAs(OutputType.BYTES);,"image/png","screenshot");
 				testUtils.getWebDriver().close();
 			}
 		} catch (Exception e) {
