@@ -4,6 +4,6 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {
-		"src/test/resources/features/AssignmentScenarios.feature" }, plugin = {"pretty", "html:target/cucumber-report/index.html" })
+		"src/test/resources/features/AssignmentScenarios.feature" }, plugin = {"pretty", "html:target/cucumber-report/index.html" ,"json:target/cucumber-report/report.json"})
 public class TestRunner {
 }
