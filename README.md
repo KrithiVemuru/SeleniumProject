@@ -27,7 +27,7 @@ In order to run in CI/CD pipeline I used jenkins as the tool. Below are the deta
 5. Set the JAVA_HOME & MAVEN_HOME environment variables with a value of their installation folders from Configure System option
 6. Create a Job (namely an Item) with any name by selecting Maven Project option
 7. Now configure the Job to have GIT Repo URL along with its credentials, Build Parameters, Pre Build Steps, Maven command (mvn clean install -Dbrowser=chrome -Dcucumber.filter.tags=) & Post Build Steps.
-8. At this point, the job is ready and we can start buiding the same by clicking on Build with Parameters.
+8. At this point, the job is ready and we can start building the the same by clicking on Build with Parameters.
 9. Post execution, HTML Results along with screenshots can be found from workspace/target/cucumber-report/index.html
 10. Save this file as a html file in your local system and launch the same in any browser to see the results
 
@@ -52,3 +52,7 @@ In order to run in CI/CD pipeline I used jenkins as the tool. Below are the deta
 
 # Further Steps:
 Clone the repo and add it to your local Eclipse workspace. Convert the same to Cucumber Project from Eclipse and perform a Build. Your project is ready and you can start automating the scenarios.
+
+#Improvement/New Feature to Calliope.pro:
+1. There should be a place to provide Project Repo URL at the time of uploading the reports.
+2. A tool to run the uploaded tests on the fly similar to Saucelabs should have evaluated the tests.
