@@ -114,7 +114,7 @@ public class BaseSpec {
 	public void closeDriver(Scenario scenario) {
 		try {
 			if (testType.equals("UI")) {
-				scenario.attach(((TakeScreenShot)testUtils.getWebDriver()).getScreenshotAs(OutputType.BYTES);,"image/png","screenshot");
+				scenario.attach(((TakeScreenShot)testUtils.getWebDriver()).getScreenshotAs(OutputType.BYTES),"image/png","screenshot");
 				testUtils.getWebDriver().close();
 			}
 		} catch (Exception e) {
