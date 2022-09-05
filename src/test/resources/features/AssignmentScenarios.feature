@@ -16,7 +16,7 @@ Feature: Automation Assignment
     
   @Type=UI
   @Data=AssignmentTestData.json
-  Scenario: Ovelapped Element
+  Scenario: Overlapped Element
     When User clicks on "Overlapped Element" link
     And User enters "Customer Details" data
     Then Details should be entered successfully
