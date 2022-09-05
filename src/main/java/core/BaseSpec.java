@@ -60,7 +60,7 @@ public class BaseSpec {
 			environment = prop.getProperty("environment");
 			userName = prop.getProperty("userName");
 			password = prop.getProperty("password");
-			browser = (System.getProperty("browser") != null) || (System.getProperty("browser") != "") ? System.getProperty("browser") : prop.getProperty("browser") != null ? prop.getProperty("browser") : "firefox";
+			browser = (System.getProperty("browser") != null) && (System.getProperty("browser") != "") ? System.getProperty("browser") : prop.getProperty("browser") != null ? prop.getProperty("browser") : "firefox";
 
 			// Launch the browser
 			if (testType.equalsIgnoreCase("UI")) {

@@ -72,23 +72,6 @@
 				<groupId>net.masterthought</groupId>
 				<artifactId>cucumber-reporting</artifactId>
 				<version>5.7.2</version>
-				<executions>
-					<execution>
-						<id>generate-cucumber-reports</id>
-						<phase>test</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<jsonFiles>
-								<param>**/*.json</param>
-							</jsonFiles>
-							<outputDirectory>${project.build.directory}/target/cucumber-reports</outputDirectory>
-							<inputDirectory>${project.build.directory}/target/cucumber-reports</inputDirectory>
-							<checkBuildResult>false</checkBuildResult>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

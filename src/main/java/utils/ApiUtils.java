@@ -36,7 +36,6 @@ public class ApiUtils {
 			return null;
 		}
 		System.out.println("Post Response Code:"+response.getStatusCode());
-		System.out.println("Response Body:"+response.jsonPath().prettify());
 		return new JSONObject(response.jsonPath().prettify());
 	}
 
@@ -50,7 +49,6 @@ public class ApiUtils {
 			return null;
 		}
 		System.out.println("Put Response Code:"+response.getStatusCode());
-		System.out.println("Response Body:"+response.jsonPath().prettify());
 		return new JSONObject(response.jsonPath().prettify());
 	}
 	
@@ -63,7 +61,6 @@ public class ApiUtils {
 			return null;
 		}
 		System.out.println("Get Response Code:"+response.getStatusCode());
-		System.out.println("Response Body:"+response.jsonPath().prettify());
 		return new JSONObject(response.jsonPath().prettify());
 	}
 
@@ -76,7 +73,6 @@ public class ApiUtils {
 			return null;
 		}
 		System.out.println("Get Response Code:"+response.getStatusCode());
-		System.out.println("Response Body:"+response.jsonPath().prettify());
 		return new JSONArray(response.jsonPath().prettify());
 	}
 
